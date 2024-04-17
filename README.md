@@ -1,3 +1,3 @@
 # SOLVD
 
-## This repository contains homeworks
+This repository contains homework assignments
