@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My portfolio</title>
+    <meta name="description" content="This is my portfolio" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./contact.html">Contact </a>
+      </nav>
+    </header>
+    <hr />
+    <main>
+      <h1>Contact Me</h1>
+      <form method="post">
+        <label for="name">Full name*</label>
+        <input type="text" id="name" name="name" placeholder="Your name..." required />
+        <input type="text" id="lastName" name="lastName" placeholder="Your lastName..." required /><br />
+        <label for="phone">Phone number*</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your phone..." minlength="9" required /><br />
+        <label for="county">Country</label>
+        <select id="country" name="country">
+          <option>Australia</option>
+          <option>Poland</option>
+          <option>Germany</option></select
+        ><br />
+        <textarea id="message" name="message" rows="15" placeholder="Your message..."></textarea><br />
+        <button>Submit</button>
+      </form>
+      <hr />
+    </main>
+    <footer>
+      <a href="#"><img src="public/facebook.png" width="40px" alt="facebook" /></a>
+      <a href="#"> <img src="public/instagram.png" width="40px" alt="instagram" /></a>
+      <a href="#"><img src="public/linkedin.png" width="40px" alt="linkedin" /></a>
+      <a href="#"> <img src="public/twitter.png" width="40px" alt="facebook" /></a>
+    </footer>
+  </body>
+</html>
