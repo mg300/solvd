@@ -60,7 +60,13 @@ body {
   font-family: "Poppins";
   background-color: var(--color-background);
   color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
+
 .theme-btn {
   border-radius: 10rem;
   background-color: var(--color-btn-theme);
@@ -81,8 +87,8 @@ header {
 }
 
 main {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1rem 2rem;
+
   max-width: 757px;
   display: flex;
   gap: 3rem;
@@ -97,6 +103,10 @@ menu {
   align-items: center;
   gap: 2rem;
   margin-bottom: 3rem;
+}
+.profile-img {
+  border-radius: 10rem;
+  transition: 500ms;
 }
 .socials {
   display: flex;
@@ -169,11 +179,15 @@ nav ul {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
-  row-gap: 2rem;
+  gap: 2rem;
+  cursor: pointer;
 }
 .content > div {
   position: relative;
   display: flex;
+}
+.content img {
+  width: 100%;
 }
 
 .caption {
@@ -183,7 +197,7 @@ nav ul {
   top: 0;
   bottom: 0;
   border-radius: 1rem;
-  opacity: 0.88;
+  opacity: 0;
   background-color: var(--color-caption);
   display: flex;
   flex-direction: column;
@@ -214,4 +228,86 @@ nav ul {
 footer {
   margin-top: 5rem;
   text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.top-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+  width: 5.5rem;
+  height: 5.5rem;
+  background-color: var(--color-btn-theme);
+  justify-content: center;
+  align-items: center;
+  display: none;
+  clip-path: polygon(50% 0, 50% 0, 100% 50%, 100% 100%, 0 100%, 0% 50%);
+}
+.top-btn img {
+  width: 2rem;
+  filter: var(--filter-btn-theme);
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+  .profile figure img {
+    max-width: 10rem;
+  }
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .socials {
+    margin-top: 2rem;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .achievements {
+    gap: 2rem;
+  }
+  .content {
+    grid-template-columns: 1fr;
+  }
+  main {
+    margin: 1rem;
+  }
+  .top-btn {
+    display: flex;
+  }
+  .btn {
+    padding: 1rem 0;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  .content {
+    gap: 1rem;
+  }
+}
+
+/* animations */
+.caption:hover {
+  opacity: 1;
+  transition: 0.2s ease-in;
+}
+@keyframes zoom {
+  0% {
+    transform: Scale(1);
+  }
+  20% {
+    transform: Scale(1.03);
+  }
+
+  100% {
+    transform: Scale(1.05);
+  }
+}
+.content img:hover {
+  animation: 3s infinite alternate zoom;
 }
