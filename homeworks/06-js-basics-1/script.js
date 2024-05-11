@@ -26,15 +26,16 @@ function printArray(array) {
 }
 // http://www.codewars.com/kata/transportation-on-vacation
 function rentalCarCost(d) {
-  let cost = d * 40;
-
+  const BASE_PRICE = 40;
+  const DISCOUNT_3_DAYS = 20;
+  const DISCOUNT_7_DAYS = 50;
+  let totalCost = d * BASE_PRICE;
   if (d >= 7) {
-    cost -= 50;
+    totalCost -= DISCOUNT_7_DAYS;
   } else if (d >= 3) {
-    cost -= 20;
+    totalCost -= DISCOUNT_3_DAYS;
   }
-
-  return cost;
+  return totalCost;
 }
 // http://www.codewars.com/kata/calculating-with-functions
 function zero(cb) {
@@ -83,10 +84,11 @@ function dividedBy(inner) {
 
 // http://www.codewars.com/kata/get-the-middle-character
 function getMiddle(s) {
+  const middleElIndex = Math.floor(s.length / 2);
   if (s.length % 2 == 1) {
-    return s[Math.floor(s.length / 2)];
+    return s[middleElIndex];
   } else {
-    return s[Math.floor(s.length / 2) - 1] + s[Math.floor(s.length / 2)];
+    return s[middleElIndex - 1] + s[middleElIndex];
   }
 }
 // http://www.codewars.com/kata/partition-on
@@ -109,19 +111,13 @@ function partitionOn(pred, items) {
 //ERROR 404
 // https://www.codewars.com/kata/find-the-odd-int/
 function findOdd(A) {
-  for (let i = 0; i < A.length; i++) {
-    let counter = 0;
-    const num = A[i];
-    for (let j = 0; j < A.length; j++) {
-      if (A[i] == A[j]) {
-        counter++;
-      }
-    }
-    if (counter % 2 == 1) {
-      return num;
-    }
+  let valuesCounts = {};
+  for (let el of A) {
+    valuesCounts[el] ? valuesCounts[el]++ : (valuesCounts[el] = 1);
   }
-  return 0;
+  for (key in valuesCounts) {
+    if (valuesCounts[key] % 2 == 1) return parseInt(key);
+  }
 }
 // https://www.codewars.com/kata/find-the-parity-outlier
 function findOutlier(integers) {
