@@ -10,21 +10,19 @@
       },
     },
   };
-  const randomValue = Math.random();
-  const nullValue = null;
   function pluck(obj, str) {
     const properties = str.split(".");
     let currentObj = obj;
     for (let property of properties) {
-      if (currentObj == null) {
+      if (currentObj === null || currentObj === undefined) {
         return null;
       }
-
       currentObj = currentObj[property];
     }
-
     return currentObj;
   }
+  const randomValue = Math.random();
+  const nullValue = null;
   console.log(pluck(user, "preferences.sound.value")); // 30
   console.log(pluck(user, "unknown.key")); // null
   console.log(pluck(randomValue, "unknown.key")); // null
@@ -185,23 +183,15 @@ function OnceNamedOne(first, last) {
 }
 //https://www.codewars.com/kata/partial-keys
 function partialKeys(obj) {
-  const newObj = {};
-  function generateKeys(key) {
-    const partials = [];
-    for (let i = 1; i <= key.length; i++) {
-      partials.push(key.slice(0, i));
-    }
-    return partials;
-  }
-  for (let key of Object.keys(obj).sort()) {
-    const partials = generateKeys(key);
-    for (let partialKey of partials) {
-      if (!(partialKey in newObj)) {
-        newObj[partialKey] = obj[key];
-      }
-    }
-  }
-  return newObj;
+  const handler = {
+    get(target, prop) {
+      const key = Object.keys(obj)
+        .sort()
+        .filter((x) => x.startsWith(prop))[0];
+      return key ? obj[key] : undefined;
+    },
+  };
+  return new Proxy(obj, handler);
 }
 // https://www.codewars.com/kata/52685f7382004e774f0001f7/train/javascript
 function humanReadable(seconds) {
