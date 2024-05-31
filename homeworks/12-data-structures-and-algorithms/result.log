@@ -1,0 +1,5 @@
+{ index: 11999, milliseconds: 1.415208, operations: 12000 } straight search index last
+{ index: 999, milliseconds: 0.005917, operations: 1000 } straight search index 999
+{ index: -1, milliseconds: 0.027959, operations: 13 } binary search on not sorted array
+{ index: 6242, milliseconds: 26.257, operations: 146846 } binary search with sorting combined
+{ index: 6242, milliseconds: 0.005291, operations: 13 } binary search on sorted array
