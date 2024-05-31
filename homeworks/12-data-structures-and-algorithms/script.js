@@ -10,10 +10,6 @@ function straightSearch(data, target) {
   }
   return { index: -1, operations };
 }
-// const startTime = Date.now();
-// const resultIndex = straightSearch(data, "83b65687-1774-4172-9e28-44537a619a7e10");
-// const endTime = Date.now();
-// console.log(endTime - startTime, resultIndex);
 function measureTime(fn, data, target) {
   const start = process.hrtime();
   const result = fn(data, target);
