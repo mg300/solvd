@@ -1,0 +1,35 @@
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(20, 40px);
+  grid-template-rows: repeat(30, 40px);
+  gap: 2px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cell.selected {
+  background-color: blue !important;
+  color: white;
+}
+
+.cell.active-row {
+  background-color: rgb(127, 223, 254);
+}
+
+.cell.active-col {
+  background-color: rgb(127, 223, 254);
+}
